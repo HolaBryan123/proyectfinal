@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario de Programación</title>
+  <style>
+    label {
+      display: block;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+    <a href="index4.html">Regresar</a>
+  <h1>Formulario de Programación</h1>
+
+  <form id="programacionForm" onsubmit="evaluarFormulario(); return false;">
+
+    <label>
+      1. ¿Cuál es el lenguaje de programación más popular?
+      <select name="q1">
+        <option value="incorrecta">Java</option>
+        <option value="correcta">JavaScript</option>
+        <option value="incorrecta">Python</option>
+        <option value="incorrecta">C++</option>
+        <option value="incorrecta">C#</option>
+      </select>
+    </label>
+
+    <label>
+      2. ¿Qué significa HTML?
+      <select name="q2">
+        <option value="incorrecta">Hypertext Transfer Protocol</option>
+        <option value="incorrecta">High-level Text Markup Language</option>
+        <option value="correcta">Hypertext Markup Language</option>
+        <option value="incorrecta">Hyperlink and Text Markup Language</option>
+        <option value="incorrecta">Home Tool Markup Language</option>
+      </select>
+    </label>
+
+    <label>
+      3. ¿Cuál de los siguientes NO es un lenguaje de programación?
+      <select name="q3">
+        <option value="incorrecta">Java</option>
+        <option value="incorrecta">Python</option>
+        <option value="incorrecta">C++</option>
+        <option value="incorrecta">HTML</option>
+        <option value="correcta">JPEG</option>
+      </select>
+    </label>
+
+    <label>
+      4. ¿Qué es CSS?
+      <select name="q4">
+        <option value="incorrecta">Computer Style Sheets</option>
+        <option value="correcta">Cascading Style Sheets</option>
+        <option value="incorrecta">Colorful Style Sheets</option>
+        <option value="incorrecta">Creative Style Sheets</option>
+        <option value="incorrecta">Computer Science Sheets</option>
+      </select>
+    </label>
+
+    <label>
+      5. ¿En qué año se lanzó JavaScript?
+      <select name="q5">
+        <option value="incorrecta">1995</option>
+        <option value="incorrecta">2000</option>
+        <option value="incorrecta">2005</option>
+        <option value="correcta">1996</option>
+        <option value="incorrecta">2010</option>
+      </select>
+    </label>
+
+    <button type="submit">Evaluar respuestas</button>
+
+  </form>
+
+  <div id="resultados">
+    <h2>Resultados</h2>
+    <label>
+      Respuestas correctas:
+      <input type="checkbox" id="correctas" disabled>
+    </label>
+    <label>
+      Respuestas incorrectas:
+      <input type="checkbox" id="incorrectas" disabled>
+    </label>
+  </div>
+
+  <script>
+    function evaluarFormulario() {
+      
+      const respuestas = document.querySelectorAll('select');
+      
+      let correctas = 0;
+      let incorrectas = 0;
+
+      respuestas.forEach(respuesta => {
+        const valorSeleccionado = respuesta.value;
+        if (valorSeleccionado === 'correcta') {
+          correctas++;
+        } else {
+          incorrectas++;
+        }
+      });
+
+      
+      document.getElementById('correctas').checked = true;
+      document.getElementById('incorrectas').checked = true;
+
+     
+      console.log('Respuestas correctas:', correctas);
+      console.log('Respuestas incorrectas:', incorrectas);
+    }
+  </script>
+
+</body>
+</html>
